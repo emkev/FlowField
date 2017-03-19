@@ -27,31 +27,34 @@ class FlowField {
     
     float xoff = 0 ;
     for(int i = 0 ; i < cols ; i++) {
+      
       float yoff = 0 ;
       for(int j = 0 ; j < rows ; j++) {
-        float theta = map(noise(xoff,yoff) , 0 , 1 , 0 , TWO_PI) ;
-        
+        float theta = map(noise(xoff,yoff) , 0 , 1 , 0 , TWO_PI) ;        
         field[i][j] = new PVector(cos(theta) , sin(theta)) ;
         yoff += 0.1 ;
-      }
+      }  /* for-j-rows */
+      
       xoff += 0.1 ;
-    }
+    }  /* for-i-cols */
     
   }
 
   void update() {
     
-    float xoff = 0 ;
+    float xoff = 0 ;    
     for(int i = 0 ; i < cols ; i++) {
+      
       float yoff = 0 ;
       for(int j = 0 ; j < rows ; j++) {
-        float theta = map(noise(xoff,yoff,zoff) , 0 , 1 , 0 , TWO_PI) ;
-        
+        float theta = map(noise(xoff,yoff,zoff) , 0 , 1 , 0 , TWO_PI) ;    
         field[i][j] = PVector.fromAngle(theta) ;
         yoff += 0.1 ;
-      }
+      }  /* for-j-rows */
+      
       xoff += 0.1 ;
-    }
+    }  /* for-i-cols */
+    
     zoff += 0.01 ;
   }
   
